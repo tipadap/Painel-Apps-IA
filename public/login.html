@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Padap — Acesso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-body">
+  <div class="scanline-overlay"></div>
+  <main class="login-card">
+    <div class="login-brand">
+      <span class="signal-dot signal-dot--online"></span>
+      <span class="login-brand-text">PAINEL <strong>PADAP</strong></span>
+    </div>
+    <p class="login-sub">Console de projetos &middot; Railway</p>
+
+    <form id="login-form" class="login-form" autocomplete="off">
+      <label class="field-label" for="username">Usuário</label>
+      <input class="field-input" type="email" id="username" name="username" placeholder="usuario@dominio.com.br" required>
+
+      <label class="field-label" for="password">Senha</label>
+      <input class="field-input" type="password" id="password" name="password" placeholder="••••••••" required>
+
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+      <p id="login-error" class="login-error" hidden>Usuário ou senha inválidos.</p>
+    </form>
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Padap — Projetos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="signal-dot signal-dot--online"></span>
+      <span class="topbar-title">PAINEL <strong>PADAP</strong></span>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn btn-primary" id="btn-open-modal">+ Novo projeto</button>
+      <button class="btn btn-ghost" id="btn-logout">Sair</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="summary-row" id="summary-row" aria-label="Resumo por status">
+      <!-- preenchido via JS -->
+    </section>
+
+    <section class="board" id="board" aria-label="Projetos cadastrados">
+      <!-- cards preenchidos via JS -->
+    </section>
+
+    <p class="empty-state" id="empty-state" hidden>
+      Nenhum projeto cadastrado ainda.<br>
+      Use <strong>+ Novo projeto</strong> para registrar o primeiro sistema hospedado no Railway.
+    </p>
+  </main>
+
+  <!-- Modal: novo projeto -->
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Novo projeto</h2>
+        <button class="modal-close" id="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      <form id="project-form" class="modal-form">
+        <label class="field-label" for="p-name">Nome do projeto</label>
+        <input class="field-input" type="text" id="p-name" name="name" placeholder="Ex: Cobrança WhatsApp" required>
+
+        <div class="field-row">
+          <div class="field-col">
+            <label class="field-label" for="p-version">Versão</label>
+            <input class="field-input field-mono" type="text" id="p-version" name="version" placeholder="v1.0.0">
+          </div>
+          <div class="field-col">
+            <label class="field-label" for="p-date">Data de criação</label>
+            <input class="field-input field-mono" type="date" id="p-date" name="createdAt" required>
+          </div>
+        </div>
+
+        <label class="field-label" for="p-status">Status</label>
+        <select class="field-input" id="p-status" name="status" required>
+          <option value="Online">Online</option>
+          <option value="Em testes">Em testes</option>
+          <option value="Em desenvolvimento">Em desenvolvimento</option>
+          <option value="Pausado">Pausado</option>
+        </select>
+
+        <label class="field-label" for="p-url">Link do app publicado</label>
+        <input class="field-input field-mono" type="url" id="p-url" name="url" placeholder="https://meuprojeto.up.railway.app">
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="modal-cancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar projeto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: confirmar exclusão -->
+  <div class="modal-overlay" id="confirm-overlay" hidden>
+    <div class="modal modal--confirm" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+      <h2 id="confirm-title">Excluir projeto</h2>
+      <p class="confirm-text">Tem certeza que deseja excluir <strong id="confirm-name"></strong>? Essa ação não pode ser desfeita.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="confirm-cancel">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
