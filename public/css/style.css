@@ -33,6 +33,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 /* Garante que o atributo hidden sempre esconda o elemento,
    mesmo quando outra regra define display para a mesma classe. */
